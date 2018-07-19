@@ -6,7 +6,6 @@
 
         <v-list-tile-content @click="toggle">
             <v-list-tile-title>{{msg}}</v-list-tile-title>
-            <v-list-tile-sub-title>Hangouts video call</v-list-tile-sub-title>
         </v-list-tile-content>
     </v-list-tile>
 </template>
