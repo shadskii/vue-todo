@@ -9,6 +9,7 @@
             <small>
               <em>&mdash;John Johnson</em>
             </small>
+            <todo msg="hello!"/>
           </footer>
         </blockquote>
       </v-layout>
@@ -17,10 +18,14 @@
 </template>
 
 <script>
+import Todo from "./Todo.vue";
 export default {
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  components: {
+    Todo
   }
 };
 </script>
