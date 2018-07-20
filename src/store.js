@@ -9,7 +9,8 @@ export default new Vuex.Store({
   getters: {
     incompleteTodos: state => {
       return state.todos.filter(t => !t.done);
-    }
+    },
+    allTodos: state => state.todos
   },
   mutations: {
     completeTodo(state, id) {

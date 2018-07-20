@@ -13,10 +13,15 @@
 import Todo from "../Todo";
 export default {
   name: "Todo",
-  data: function() {
-    return {
-      complete: false
-    };
+  computed: {
+    complete: {
+      get() {
+        this.todo.done;
+      },
+      set(val) {
+        this.$store.commit("completeTodo", val);
+      }
+    }
   },
   props: {
     todo: Todo
