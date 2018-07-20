@@ -3,8 +3,8 @@
     two-line>
         <todo 
         v-for="t in todos"
-        :key="t"
-        :msg="t"
+        :key="t.msg"
+        :todo="t"
         />
     </v-list>
 </template>
@@ -12,10 +12,10 @@
 import Todo from "./Todo.vue";
 export default {
   name: "TodoList",
-  data: function() {
-    return {
-      todos: ["Do something", "Another thing", "4 more things"]
-    };
+  computed: {
+    todos() {
+      return this.$store.getters.incompleteTodos;
+    }
   },
   components: {
     Todo

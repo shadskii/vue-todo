@@ -5,11 +5,12 @@
         </v-list-tile-action>
 
         <v-list-tile-content @click="toggle">
-            <v-list-tile-title>{{msg}}</v-list-tile-title>
+            <v-list-tile-title>{{todo.msg}}</v-list-tile-title>
         </v-list-tile-content>
     </v-list-tile>
 </template>
 <script>
+import Todo from "../Todo";
 export default {
   name: "Todo",
   data: function() {
@@ -18,7 +19,7 @@ export default {
     };
   },
   props: {
-    msg: String
+    todo: Todo
   },
   methods: {
     toggle() {
