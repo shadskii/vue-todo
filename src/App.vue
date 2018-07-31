@@ -14,27 +14,30 @@
     </v-navigation-drawer>
     <v-toolbar app extended color="primary">
       <v-btn fab small color="cyan accent-2" bottom left absolute @click.native.stop="dialog = !dialog">
-        <v-icon>add</v-icon>
+        <v-icon v-if="!dialog">add</v-icon>
+        <v-icon>remove</v-icon>
       </v-btn>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
 
     </v-toolbar>
+
     <v-content>
+      <v-slide-y-transition v-if="dialog">
+        <v-card>
+          <v-card-text>
+            <v-text-field v-model="text" label="Add something to do"></v-text-field>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn flat color="primary" @click.native="addTodo">Add</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-slide-y-transition>
       <todo-list/>
     </v-content>
-    <v-dialog v-model="dialog" max-width="500px">
-      <v-card>
-        <v-card-text>
-          <v-text-field v-model="text" label="Add something to do"></v-text-field>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn flat color="primary" @click.native="addTodo">Add</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>
