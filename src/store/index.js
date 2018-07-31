@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import Todo from "./Todo";
+import Todo from "../Todo";
 
 Vue.use(Vuex);
 
@@ -10,7 +10,9 @@ export default new Vuex.Store({
     incompleteTodos: state => {
       return state.todos.filter(t => !t.done);
     },
-    allTodos: state => state.todos
+    allTodos: state => state.todos,
+    isComplete: (state, todo) =>
+      state.todos.filter(t => t.id === todo.id).complete
   },
   mutations: {
     completeTodo(state, id) {
