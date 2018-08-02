@@ -17,7 +17,7 @@ export default {
   computed: {
     complete: {
       get() {
-        this.todo.done;
+        return this.todo.done;
       },
       set(val) {
         this.$store.commit("completeTodo", val);
